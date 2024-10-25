@@ -51,3 +51,17 @@ subset_model = multiple_regression(X, df['Sale Price'])
 
 print("Subset Regression Error: ")
 print(cross_validate(subset_model, X, df['Sale Price']))
+
+
+def pca(X, k):
+    pca = PCA(n_components=k)
+    X_reduced = pca.fit_transform(X)
+    explained_variance = pca.explained_variance_ratio_
+    return X_reduced, explained_variance
+
+
+def lasso(X, y, k):
+    lasso = Lasso(alpha=k)
+    lasso.fit(X, y)
+    return lasso.coef_
+
