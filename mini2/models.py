@@ -53,15 +53,3 @@ subset_model = multiple_regression(X, df['Sale Price'])
 print("Subset Regression Error: ")
 print(cross_validate(subset_model, X, df['Sale Price']))
 
-# PCA
-
-def pca(X, k):
-    pca = PCA(n_components=k)
-    X_pca = pca.fit(X)
-    return X_pca
-
-pca_k = 0.95
-pca_model = pca(df, pca_k)
-
-print("PCA Error: ")
-print(cross_validate(pca_model, X, df['Sale Price']))
